@@ -40,7 +40,7 @@ for file in $(find ./tutorials -type f -name "*.en.md" | sort); do
 
         slug=$(yq --front-matter extract '.slug' "$file")
         title=$(yq --front-matter extract '.title' "$file")
-        author=$(yq --front-matter extract '.author_link' "$file" | sed 's|https://github.com/|@|')
+        author=$(yq --front-matter extract '.author_link' "$file" | sed 's|https://github.com/||')
 
         if [[ "$author" == '@hetzneronline' ]]; then
             author=Hetzner
